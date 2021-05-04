@@ -1,0 +1,74 @@
+body {
+    background-color: #15172b;
+}
+
+.containerMainJoke {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100px;
+  margin: 10px 5px;
+  padding: 10px;
+  box-shadow: 0 10px 20px rgb(0 0 0 / 19%), 0 6px 6px rgb(0 0 0 / 23%);
+  border-radius: 5px;
+  font-family: "Permanent Marker", cursive;
+  background-color: white;
+}
+
+.card-title {
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  color: #4c4c4c;
+}
+
+.jokeImg {
+    margin: 1rem;
+    width: 35%;
+    min-width: 20rem;
+}
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+.logo_joker {
+    width: 2.5rem;
+    margin: 0.5rem;
+
+}
+
+.appbar {
+	background-color: #f7d736;	
+	display: flex;
+	flex-direction: row;
+	align-content: center;
+	box-shadow: 0 1px 24px rgba(0, 0, 0, 0.75);
+	margin-bottom: 1rem;
+}
+
+.top-bar-text { 
+  align-self: center;
+  margin-left: 0.5rem;
+  font-size: 1.25rem;
+}
+
+
