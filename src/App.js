@@ -9,13 +9,13 @@ import FavoriteJokes from "./components/FavoriteJokes"
 function App() {
   function saveJoke() {
     axios
-      .post('http://127.0.0.1:8000/api/favorites/', joke)
+      .post('http://evening-harbor-15666.herokuapp.com/api/favorites/', joke)
       .then((res) => {
         setFavs(res.data)
       })
 
     axios
-      .get("http://localhost:8000/api/joke/")
+      .get('http://evening-harbor-15666.herokuapp.com/api/joke/')
       .then((res) => setJoke(res.data));
   };
 
@@ -24,7 +24,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get('http://127.0.0.1:8000/api/favorites/')
+      .get('http://evening-harbor-15666.herokuapp.com/api/favorites/')
       .then((res) => {
         setFavs(res.data)
       })
@@ -33,7 +33,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/joke/")
+      .get('http://evening-harbor-15666.herokuapp.com/api/joke/')
       .then((res) => setJoke(res.data));
   }, []);
 
