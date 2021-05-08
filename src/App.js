@@ -30,27 +30,25 @@ function App() {
   const [favs,  setFavs]  = useState([]);
   const [isLoading,  setLoading]  = useState('');
 
-
-  useEffect(() => {
-    axios
-      .get('https://evening-harbor-15666.herokuapp.com/api/favorites/')
-      .then((res) => {
-        setLoading(false);
-        setJoke(res.data)
-      });
-  }, []);
-
-
   useEffect(() => {
     setLoading(true);
   }, []);
 
   useEffect(() => {
     axios
+      .get('https://evening-harbor-15666.herokuapp.com/api/favorites/')
+      .then((res) => {
+        setFavs(res.data)
+      });
+  }, []);
+
+
+  useEffect(() => {
+    axios
       .get('https://evening-harbor-15666.herokuapp.com/api/joke/')
       .then((res) => {
-        setLoading(false);
         setJoke(res.data)
+        setLoading(false);
       });
   }, []);
 
