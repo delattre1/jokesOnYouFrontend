@@ -30,9 +30,6 @@ function App() {
   const [favs,  setFavs]  = useState([]);
   const [isLoading,  setLoading]  = useState('');
 
-  useEffect(() => {
-    setLoading(true);
-  }, []);
 
   useEffect(() => {
     axios
@@ -43,10 +40,18 @@ function App() {
       });
   }, []);
 
+
+  useEffect(() => {
+    setLoading(true);
+  }, []);
+
   useEffect(() => {
     axios
       .get('https://evening-harbor-15666.herokuapp.com/api/joke/')
-      .then((res) => setJoke(res.data));
+      .then((res) => {
+        setLoading(false);
+        setJoke(res.data)
+      });
   }, []);
 
   console.log(joke);
