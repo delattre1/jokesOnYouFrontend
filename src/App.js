@@ -19,7 +19,7 @@ function App() {
       })
 
     axios
-      .get('http://localhost:8000/api/joke/')
+      .get('https://evening-harbor-15666.herokuapp.com/api/joke/')
       .then((res) => {
         setJoke(res.data);
         setLoading(false);
