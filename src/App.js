@@ -9,6 +9,28 @@ import Loader from "react-loader-spinner";
 
 
 function App() {
+  function getToken() {
+    axios
+      .get('http://54.88.109.168/daniel/token')
+      .then((res) => {
+        let token = res.data;
+        createImg(token);
+      })
+  }
+
+  function createImg(token){
+    let url = 'http://54.88.109.168/daniel/image'
+    let urlImg = axios
+      .post(url, token)
+      .then((res) => {
+        let urlCriada = res.data.image_uri;
+        let urlImg = `http://54.88.109.168${urlCriada}`;
+        setImgUri(urlImg);
+      })
+    return urlImg
+  }
+
+
   function saveJoke() {
     setLoading(true);
 
@@ -25,7 +47,7 @@ function App() {
         setLoading(false);
       });
   };
-
+  const [imgUri, setImgUri] = useState('');
   const [joke, setJoke] = useState([]);
   const [favs,  setFavs]  = useState([]);
   const [isLoading,  setLoading]  = useState('');
@@ -41,7 +63,11 @@ function App() {
         setFavs(res.data)
       });
   }, []);
-
+  
+  useEffect(()=> {
+    getToken();
+  }, []);
+  
 
   useEffect(() => {
     axios
@@ -60,6 +86,7 @@ function App() {
             <p className="top-bar-text">Timão piadas mesmo!</p>
         </div>
       
+      <img src={imgUri}/>
       <div className="mainContainer">
       {isLoading ? 
         <Loader type="BallTriangle" color="#00BFFF" height={80} width={80} /> : 
